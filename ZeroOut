@@ -1,0 +1,61 @@
+import maya.cmds as mc
+
+hi = mc.ls('*cc_01')
+mc.select(hi)
+
+#0 out controls
+for i in hi:
+    if not mc.getAttr(i + '.translateX', l = True ):
+        mc.setAttr(i + '.translateX',0)
+    if not mc.getAttr(i + '.translateY', l = True ):
+        mc.setAttr(i + '.translateY',0)
+    if not mc.getAttr(i + '.translateZ', l = True ):
+        mc.setAttr(i + '.translateZ',0)
+        
+    if not mc.getAttr(i + '.rotateX', l = True ):
+        mc.setAttr(i + '.rotateX',0)
+    if not mc.getAttr(i + '.rotateY', l = True ):
+        mc.setAttr(i + '.rotateY',0)
+    if not mc.getAttr(i + '.rotateZ', l = True ):
+        mc.setAttr(i + '.rotateZ',0)
+        
+    if not mc.getAttr(i + '.scaleX', l = True ):
+        mc.setAttr(i + '.scaleX',1)
+    if not mc.getAttr(i + '.scaleY', l = True ):
+        mc.setAttr(i + '.scaleY',1)
+    if not mc.getAttr(i + '.scaleZ', l = True ):
+        mc.setAttr(i + '.scaleZ',1)
+
+    #0 out settings controls
+    if 'arm_settings' in i:
+        mc.setAttr(i + '.Upper_Arm_Length', 1)
+        mc.setAttr(i + '.Lower_Arm_Length', 1)
+        mc.setAttr(i + '.Slide', 0)
+        mc.setAttr(i + '.Stretch', 1)
+        mc.setAttr(i + '.Soft', 0)
+        mc.setAttr(i + '.Pin', 0)
+        
+    if 'leg_settings' in i:
+        mc.setAttr(i + '.Upper_leg_Length', 1)
+        mc.setAttr(i + '.Lower_leg_Length', 1)
+        mc.setAttr(i + '.Slide', 0)
+        mc.setAttr(i + '.Stretch', 1)
+        mc.setAttr(i + '.Soft', 0)
+        mc.setAttr(i + '.Pin', 0)
+        mc.setAttr(i + '.Toe_Twist', 0)
+        mc.setAttr(i + '.Ball_Twist', 0)
+        mc.setAttr(i + '.Heel_Twist', 0)
+        mc.setAttr(i + '.Roll_Break_Angle', 35)
+        mc.setAttr(i + '.Forward_Back', 0)
+        mc.setAttr(i + '.Side_To_Side', 0)
+    
+    if 'ribbon_settings' in i:
+        mc.setAttr(i + '.Sine_Wavelength', 1)
+        mc.setAttr(i + '.Sine_Amplitude', 0)
+        mc.setAttr(i + '.Sine_Rotation', 0)
+        mc.setAttr(i + '.Sine_Offset', 0)
+        mc.setAttr(i + '.Sine_Dropoff', 0)
+        mc.setAttr(i + '.Twist_Start_Angle', 0)
+        mc.setAttr(i + '.Twist_End_Angle', 0)        
+
+mc.select(cl = True)
